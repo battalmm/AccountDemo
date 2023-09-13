@@ -22,7 +22,7 @@ public class Transaction {
 
     private TransactionType transactionType = TransactionType.INITIAL;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "account_id", nullable = false)
     private Account account;
 
@@ -92,7 +92,7 @@ public class Transaction {
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + transactionDate.hashCode();
         result = 31 * result + transactionAmount.hashCode();
         result = 31 * result + transactionType.hashCode();

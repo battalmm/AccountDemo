@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public class CreateAccountRequestDto {
 
+
     private String customerId;
     private BigDecimal initialCredit;
 
