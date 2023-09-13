@@ -1,10 +1,4 @@
 package com.korkmazyusufcan.accountdemo.dto;
-
-import com.korkmazyusufcan.accountdemo.model.Account;
-import com.korkmazyusufcan.accountdemo.model.Customer;
-import com.korkmazyusufcan.accountdemo.model.Transaction;
-import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -12,18 +6,18 @@ import java.util.Set;
 
 public class AccountDto {
 
-    private Long id;
+    private String id;
     private BigDecimal balance;
     private LocalDateTime creationDate;
-    private CustomerDto customer;
+    private AccountCustomerDto customer;
     private Set<TransactionDto> transaction;
 
     public AccountDto(){}
 
-    public AccountDto(Long id,
+    public AccountDto(String id,
                       BigDecimal balance,
                       LocalDateTime creationDate,
-                      CustomerDto customer,
+                      AccountCustomerDto customer,
                       Set<TransactionDto> transaction) {
         this.id = id;
         this.balance = balance;
@@ -32,11 +26,11 @@ public class AccountDto {
         this.transaction = transaction;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -56,11 +50,11 @@ public class AccountDto {
         this.creationDate = creationDate;
     }
 
-    public CustomerDto getCustomer() {
+    public AccountCustomerDto getCustomer() {
         return customer;
     }
 
-    public void setCustomer(CustomerDto customer) {
+    public void setCustomer(AccountCustomerDto customer) {
         this.customer = customer;
     }
 

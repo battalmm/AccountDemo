@@ -7,19 +7,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class TransactionMapper {
 
-    private final AccountMapper accountMapper;
-
-    public TransactionMapper(AccountMapper accountMapper) {
-        this.accountMapper = accountMapper;
-    }
-
     public TransactionDto toDto(Transaction transaction){
         return new TransactionDto(
                 transaction.getId(),
                 transaction.getTransactionDate(),
                 transaction.getTransactionAmount(),
-                transaction.getTransactionType(),
-                accountMapper.toDto(transaction.getAccount())
-        );
+                transaction.getTransactionType() );
     }
 }

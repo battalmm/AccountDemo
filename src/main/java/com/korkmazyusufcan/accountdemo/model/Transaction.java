@@ -2,6 +2,7 @@ package com.korkmazyusufcan.accountdemo.model;
 
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -11,8 +12,9 @@ import java.util.Objects;
 public class Transaction {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    private String id;
 
     private LocalDateTime transactionDate = LocalDateTime.now();
 
@@ -20,15 +22,25 @@ public class Transaction {
 
     private TransactionType transactionType = TransactionType.INITIAL;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "account_id", nullable = false)
     private Account account;
 
-    public Long getId() {
+    public Transaction(){}
+
+    public Transaction(BigDecimal transactionAmount,
+                       TransactionType transactionType,
+                       Account account) {
+        this.transactionAmount = transactionAmount;
+        this.transactionType = transactionType;
+        this.account = account;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

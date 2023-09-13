@@ -6,6 +6,7 @@ import com.korkmazyusufcan.accountdemo.dto.TransactionDto;
 import com.korkmazyusufcan.accountdemo.model.Account;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -25,8 +26,11 @@ public class AccountMapper {
                 account.getId(),
                 account.getBalance(),
                 account.getCreationDate(),
-                customerMapper.toDto(account.getCustomer()),
-                account.getTransactionsList().stream().map(transactionMapper::toDto).collect(Collectors.toSet())
+                customerMapper.convertToAccountCustomer(Optional.ofNullable(account.getCustomer())),
+                account.getTransactionsList()
+                        .stream()
+                        .map(transactionMapper::toDto)
+                        .collect(Collectors.toSet())
         );
     }
 }

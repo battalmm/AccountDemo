@@ -1,19 +1,17 @@
 package com.korkmazyusufcan.accountdemo.model;
-
-
 import jakarta.persistence.*;
-
+import org.hibernate.annotations.GenericGenerator;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Set;
 
 @Entity
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    private String id;
 
     private BigDecimal balance;
 
@@ -26,12 +24,27 @@ public class Account {
     @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
     private Set<Transaction> transaction;
 
+    public Account(){}
 
-    public void setId(Long id) {
+    public Account(BigDecimal balance,
+                   Customer customer) {
+        this.balance = balance;
+        this.customer = customer;
+    }
+
+    public Account(BigDecimal balance,
+                   LocalDateTime creationDate,
+                   Customer customer) {
+        this.balance = balance;
+        this.creationDate = creationDate;
+        this.customer = customer;
+    }
+
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

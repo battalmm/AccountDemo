@@ -1,35 +1,31 @@
 package com.korkmazyusufcan.accountdemo.dto;
-
-import com.korkmazyusufcan.accountdemo.model.Account;
-import jakarta.persistence.*;
-
 import java.util.Objects;
 import java.util.Set;
 
 
 public class CustomerDto {
-    private Long id;
+    private String id;
     private String firstName;
     private String lastName;
-    private Set<AccountDto> account;
+    private Set<CustomerAccountDto> account;
 
     public CustomerDto(){}
 
-    public CustomerDto(Long id,
+    public CustomerDto(String id,
                        String firstName,
                        String lastName,
-                       Set<AccountDto> account) {
+                       Set<CustomerAccountDto> account) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.account = account;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -49,11 +45,11 @@ public class CustomerDto {
         this.lastName = lastName;
     }
 
-    public Set<AccountDto> getAccount() {
+    public Set<CustomerAccountDto> getAccount() {
         return account;
     }
 
-    public void setAccount(Set<AccountDto> account) {
+    public void setAccount(Set<CustomerAccountDto> account) {
         this.account = account;
     }
 

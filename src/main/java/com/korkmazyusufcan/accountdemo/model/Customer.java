@@ -1,7 +1,6 @@
 package com.korkmazyusufcan.accountdemo.model;
-
 import jakarta.persistence.*;
-
+import org.hibernate.annotations.GenericGenerator;
 import java.util.Objects;
 import java.util.Set;
 
@@ -9,8 +8,9 @@ import java.util.Set;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    private String id;
 
     private String firstName;
 
@@ -19,16 +19,18 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Account> account;
 
+    public Customer(){}
+
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
