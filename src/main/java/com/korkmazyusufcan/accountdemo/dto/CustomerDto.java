@@ -2,7 +2,6 @@ package com.korkmazyusufcan.accountdemo.dto;
 import java.util.Objects;
 import java.util.Set;
 
-
 public class CustomerDto {
     private String id;
     private String firstName;

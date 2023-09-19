@@ -1,15 +1,14 @@
 package com.korkmazyusufcan.accountdemo.dto;
 import java.math.BigDecimal;
 
-
 public class CreateAccountRequestDto {
-
 
     private String customerId;
     private BigDecimal initialCredit;
 
     public CreateAccountRequestDto() {
     }
+
     public CreateAccountRequestDto(String customerId, BigDecimal initialCredit) {
         this.customerId = customerId;
         this.initialCredit = initialCredit;

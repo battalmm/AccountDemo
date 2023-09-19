@@ -1,9 +1,6 @@
 package com.korkmazyusufcan.accountdemo.model;
-
-
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;

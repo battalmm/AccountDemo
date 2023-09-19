@@ -1,5 +1,4 @@
 package com.korkmazyusufcan.accountdemo.dto;
-
 import java.util.Objects;
 
 public class AccountCustomerDto {

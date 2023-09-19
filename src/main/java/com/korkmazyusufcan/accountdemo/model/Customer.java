@@ -11,7 +11,7 @@ public class Customer {
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
-
+//@Column(nullable = false,length = 55)
     private String firstName;
 
     private String lastName;

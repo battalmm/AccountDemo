@@ -1,5 +1,4 @@
 package com.korkmazyusufcan.accountdemo.mapper;
-
 import com.korkmazyusufcan.accountdemo.dto.TransactionDto;
 import com.korkmazyusufcan.accountdemo.model.Transaction;
 import org.springframework.stereotype.Component;

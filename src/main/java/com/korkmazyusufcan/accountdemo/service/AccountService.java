@@ -9,7 +9,6 @@ import com.korkmazyusufcan.accountdemo.model.TransactionType;
 import com.korkmazyusufcan.accountdemo.repository.AccountRepository;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
-import java.util.HashSet;
 
 @Service
 public class AccountService {
@@ -39,7 +38,6 @@ public class AccountService {
                     TransactionType.INITIAL,
                     account
             );
-
             account.getTransactionsList().add(transaction);
         }
 

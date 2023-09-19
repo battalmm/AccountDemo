@@ -1,9 +1,7 @@
 package com.korkmazyusufcan.accountdemo.mapper;
-
 import com.korkmazyusufcan.accountdemo.dto.CustomerAccountDto;
 import com.korkmazyusufcan.accountdemo.model.Account;
 import org.springframework.stereotype.Component;
-
 import java.util.Objects;
 import java.util.stream.Collectors;
 

@@ -1,14 +1,8 @@
 package com.korkmazyusufcan.accountdemo.dto;
-
-import com.korkmazyusufcan.accountdemo.mapper.TransactionMapper;
-import com.korkmazyusufcan.accountdemo.model.Account;
-import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class CustomerAccountDto {
     private String id;

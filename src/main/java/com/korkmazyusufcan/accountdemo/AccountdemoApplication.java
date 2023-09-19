@@ -21,7 +21,7 @@ public class AccountdemoApplication {
 
 		SpringApplication.run(AccountdemoApplication.class, args);
 
-
+		// Just for testing. Using h2.
 		Customer customer = customerRepository.save(new Customer("Yusuf Can", "Korkmaz"));
 		Customer customer2 = customerRepository.save(new Customer("Oguzcan", "Korkmaz"));
 		Customer customer3 = customerRepository.save(new Customer("Serap", "Korkmaz"));
