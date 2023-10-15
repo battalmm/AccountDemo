@@ -20,12 +20,6 @@ public class CustomerService {
         this.customerMapper = customerMapper;
     }
 
-    protected Customer findCustomerById(String id){
-        return customerRepository
-                .findById(id)
-                .orElseThrow(() -> new CustomerNotFoundException("Customer could not find by id " + id));
-    }
-
     public CustomerDto getCustomerById(String id){
         return  customerMapper
                 .toDto(customerRepository
@@ -40,5 +34,11 @@ public class CustomerService {
                 .findAll()
                 .stream().map(customerMapper::toDto)
                 .collect(Collectors.toList());
+    }
+
+    protected Customer findCustomerById(String id){
+        return customerRepository
+                .findById(id)
+                .orElseThrow(() -> new CustomerNotFoundException("Customer could not find by id " + id));
     }
 }
