@@ -10,6 +10,8 @@ public class CustomerAccountDto {
     private Set<TransactionDto> transactions;
     private LocalDateTime creationDate;
 
+    public CustomerAccountDto(){}
+
     public CustomerAccountDto(String id,
                               BigDecimal balance,
                               Set<TransactionDto> transactions,

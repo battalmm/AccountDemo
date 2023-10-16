@@ -43,6 +43,17 @@ public class Transaction {
         this.id = id;
     }
 
+    public Transaction(String id,
+                       LocalDateTime transactionDate,
+                       BigDecimal transactionAmount,
+                       TransactionType transactionType,
+                       Account account) {
+        this.id = id;
+        this.transactionDate = transactionDate;
+        this.transactionAmount = transactionAmount;
+        this.transactionType = transactionType;
+        this.account = account;
+    }
 
     public String getId() {
         return id;

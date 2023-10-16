@@ -1,8 +1,10 @@
 package com.korkmazyusufcan.accountdemo.dto;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+
 
 public class CreateAccountRequestDto {
 

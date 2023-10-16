@@ -26,12 +26,17 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public Customer(String id, String firstName, String lastName, Set<Account> account) {
+    public Customer(String id,
+                    String firstName,
+                    String lastName,
+                    Set<Account> account) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.account = account;
     }
+
+
 
     public String getId() {
         return id;

@@ -48,6 +48,18 @@ public class Account {
         this.transaction = transaction;
     }
 
+    public Account(String id,
+                   BigDecimal balance,
+                   LocalDateTime creationDate,
+                   Customer customer,
+                   Set<Transaction> transaction) {
+        this.id = id;
+        this.balance = balance;
+        this.creationDate = creationDate;
+        this.customer = customer;
+        this.transaction = transaction;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
