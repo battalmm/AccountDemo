@@ -33,6 +33,17 @@ public class Transaction {
         this.account = account;
     }
 
+    public Transaction(BigDecimal transactionAmount,
+                       TransactionType transactionType,
+                       Account account,
+                       String id) {
+        this.transactionAmount = transactionAmount;
+        this.transactionType = transactionType;
+        this.account = account;
+        this.id = id;
+    }
+
+
     public String getId() {
         return id;
     }

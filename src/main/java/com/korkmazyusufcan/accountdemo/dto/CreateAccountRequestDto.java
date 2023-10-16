@@ -1,9 +1,14 @@
 package com.korkmazyusufcan.accountdemo.dto;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+
 import java.math.BigDecimal;
 
 public class CreateAccountRequestDto {
 
+    @NotBlank(message = "Customer id could not be null")
     private String customerId;
+    @Min(value = 0,message = "Initial credit could not be negative")
     private BigDecimal initialCredit;
 
     public CreateAccountRequestDto() {

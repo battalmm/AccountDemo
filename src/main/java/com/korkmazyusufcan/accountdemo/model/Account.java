@@ -1,9 +1,13 @@
 package com.korkmazyusufcan.accountdemo.model;
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.CreatedDate;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -16,7 +20,8 @@ public class Account {
 
     private BigDecimal balance;
 
-    private LocalDateTime creationDate = LocalDateTime.now();
+    @CreatedDate
+    private LocalDateTime creationDate;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id",nullable = false)
@@ -33,12 +38,14 @@ public class Account {
         this.customer = customer;
     }
 
-    public Account(BigDecimal balance,
-                   LocalDateTime creationDate,
-                   Customer customer) {
+    public Account(String id,
+                   BigDecimal balance,
+                   Customer customer,
+                   Set<Transaction> transaction) {
+        this.id = id;
         this.balance = balance;
-        this.creationDate = creationDate;
         this.customer = customer;
+        this.transaction = transaction;
     }
 
     public void setId(String id) {
@@ -81,6 +88,7 @@ public class Account {
         this.transaction = transaction;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -88,18 +96,21 @@ public class Account {
 
         Account account = (Account) o;
 
-        if (!id.equals(account.id)) return false;
-        if (!balance.equals(account.balance)) return false;
-        if (!creationDate.equals(account.creationDate)) return false;
-        return customer.equals(account.customer);
+        if (!Objects.equals(id, account.id)) return false;
+        if (!Objects.equals(balance, account.balance)) return false;
+        if (!Objects.equals(creationDate, account.creationDate))
+            return false;
+        if (!Objects.equals(customer, account.customer)) return false;
+        return Objects.equals(transaction, account.transaction);
     }
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + balance.hashCode();
-        result = 31 * result + creationDate.hashCode();
-        result = 31 * result + customer.hashCode();
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (balance != null ? balance.hashCode() : 0);
+        result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
+        result = 31 * result + (customer != null ? customer.hashCode() : 0);
+        result = 31 * result + (transaction != null ? transaction.hashCode() : 0);
         return result;
     }
 }
