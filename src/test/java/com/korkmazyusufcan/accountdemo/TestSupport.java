@@ -35,7 +35,7 @@ public class TestSupport {
                 "",
                 new BigDecimal(balance),
                 customer,
-                new HashSet<>());
+                Set.of());
     }
 
     public Transaction createTransaction(Account account, BigDecimal initialCredit){
